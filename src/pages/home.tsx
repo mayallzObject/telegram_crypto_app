@@ -1,5 +1,5 @@
 export const HomePage = () => {
-  return <>home</>;
+  return <h1>home</h1>;
 };
 
 HomePage.displayName = 'Home';
