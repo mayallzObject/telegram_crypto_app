@@ -11,22 +11,22 @@ export const publicRoutes: RouteObject[] = [
       {
         index: true,
         async lazy() {
-          const { HomePage } = await import('./pages/home');
-          return { Component: HomePage };
+          const HomePage = await import('./pages/home');
+          return { Component: HomePage.default };
         },
       },
       {
         path: 'boost',
         async lazy() {
-          const { BoostPage } = await import('./pages/boost');
-          return { Component: BoostPage };
+          const BoostPage = await import('./pages/boost');
+          return { Component: BoostPage.default };
         },
       },
       {
         path: 'earn',
         async lazy() {
-          const { EarnPage } = await import('./pages/earn');
-          return { Component: EarnPage };
+          const EarnPage = await import('./pages/earn');
+          return { Component: EarnPage.default };
         },
       },
     ],

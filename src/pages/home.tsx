@@ -1,5 +1,7 @@
-export const HomePage = () => {
+const HomePage = () => {
   return <h1>home</h1>;
 };
+
+export default HomePage;
 
 HomePage.displayName = 'Home';

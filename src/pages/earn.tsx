@@ -1,5 +1,7 @@
-export const EarnPage = () => {
+const EarnPage = () => {
   return <>earn</>;
 };
+
+export default EarnPage;
 
 EarnPage.displayName = 'Earn';
