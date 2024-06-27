@@ -1,9 +1,10 @@
 #root {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 main {
