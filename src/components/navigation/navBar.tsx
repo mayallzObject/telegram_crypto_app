@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavItem } from './navItem';
 import { items } from './items';
 import NavItemImage from './navItemImage';
