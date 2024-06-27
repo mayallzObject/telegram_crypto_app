@@ -11,12 +11,13 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx">
-            document.addEventListener('DOMContentLoaded', () => {
-                if (window.Telegram && window.Telegram.WebApp) {
-                  window.Telegram.WebApp.expand();
-                }
-              });
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.Telegram && window.Telegram.WebApp) {
+          window.Telegram.WebApp.expand();
+        }
+      });
     </script>
   </body>
 </html>
