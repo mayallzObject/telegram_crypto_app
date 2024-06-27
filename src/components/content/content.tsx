@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 const AppContent = () => (
-  <div className="content">
+  <div>
     <Outlet />
   </div>
 );

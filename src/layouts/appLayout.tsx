@@ -3,10 +3,19 @@ import NavBar from '../components/navigation/navBar';
 
 const AppLayout = () => {
   return (
-    <div id="app">
-      App Layout
-      <AppContent />
-      <NavBar />
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+      }}
+    >
+      <main>
+        <AppContent />
+      </main>
+      <footer>
+        <NavBar />
+      </footer>
     </div>
   );
 };

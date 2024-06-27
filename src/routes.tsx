@@ -1,12 +1,11 @@
 import { RouteObject } from 'react-router-dom';
 import AppLayout from './layouts/appLayout';
 
-// todo: add error element
 export const publicRoutes: RouteObject[] = [
   {
     path: '/',
     element: <AppLayout />,
-    errorElement: <>Error</>,
+    errorElement: <h1>Error</h1>,
     children: [
       {
         index: true,
