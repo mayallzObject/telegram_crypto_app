@@ -3,9 +3,9 @@ export const items = [
     path: '/',
   },
   {
-    path: 'boost',
+    path: '/boost',
   },
   {
-    path: 'earn',
+    path: '/earn',
   },
 ];
