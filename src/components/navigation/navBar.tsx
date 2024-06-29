@@ -25,7 +25,13 @@ const pathToImagesMap: {
 const NavBar = () => {
   return (
     <nav aria-label="Main navigation">
-      <ul>
+      <ul
+        style={{
+          display: 'flex',
+          minHeight: '6rem',
+          justifyContent: 'space-around',
+        }}
+      >
         {items.map(({ path }: Item) => {
           const imageGroup = pathToImagesMap[path];
 
