@@ -1,16 +1,47 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from 'react-router-dom';
+// src/App.tsx
+import React, { useEffect, useState } from 'react';
+import { fetchDocumentById } from './firestore/users.store';
+import { DocumentData } from 'firebase/firestore';
 
-import { publicRoutes } from './routes';
+const App: React.FC<{ userId: number | null }> = ({ userId }) => {
+  const [user, setUser] = useState<DocumentData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
-import './App.css';
+  useEffect(() => {
+    const getUserData = async () => {
+      setLoading(true);
+      try {
+        const userData = await fetchDocumentById(
+          'users',
+          String(userId)
+        );
+        setUser(userData);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-function App() {
-  const router = createBrowserRouter(publicRoutes);
+    if (userId) {
+      getUserData();
+    }
+  }, [userId]);
 
-  return <RouterProvider router={router} />;
-}
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
+    return <div>No user data found</div>;
+  }
+
+  return (
+    <div>
+      <h1>User Data</h1>
+      <pre>{JSON.stringify(user, null, 2)}</pre>
+    </div>
+  );
+};
 
 export default App;
