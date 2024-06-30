@@ -1,52 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { firestore } from '../firebaseConfig'; // Adjust the import path as necessary
-import { doc, getDoc } from 'firebase/firestore';
+import { useUser } from './context/useUser';
 
-const App: React.FC<{ userId: number | null }> = ({ userId }) => {
-  const [userData, setUserData] = useState<{
-    user_id: string;
-    score_points: number;
-  } | null>(null);
-  const [error, setError] = useState<string | null>(null);
+const App: React.FC = () => {
+  const { userId, userData, updateScore, error } = useUser();
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      if (userId !== null) {
-        try {
-          const userDocRef = doc(
-            firestore,
-            'users_telegram',
-            userId.toString()
-          );
-          const userDoc = await getDoc(userDocRef);
-          if (userDoc.exists()) {
-            setUserData(
-              userDoc.data() as {
-                user_id: string;
-                score_points: number;
-              }
-            );
-            console.log('User Data:', userDoc.data());
-          } else {
-            setError('User not found');
-            console.log('User not found');
-          }
-        } catch (err) {
-          setError('Error fetching user data');
-          console.error('Error fetching user data:', err);
-        }
-      }
-    };
-
-    fetchUser();
-  }, [userId]);
+  // Example function to handle some user action that updates the score
+  const handleScoreUpdate = () => {
+    if (userData) {
+      const newScore = userData.score_points + 10; // For example, increment score by 10
+      updateScore(newScore);
+    }
+  };
 
   return (
     <div>
       <h1>User Data {userId}</h1>
       {error && <p>{error}</p>}
       {userData ? (
-        <pre>{JSON.stringify(userData, null, 2)}</pre>
+        <>
+          <pre>{JSON.stringify(userData, null, 2)}</pre>
+          <button onClick={handleScoreUpdate}>Update Score</button>
+        </>
       ) : (
         <p>Loading...</p>
       )}
