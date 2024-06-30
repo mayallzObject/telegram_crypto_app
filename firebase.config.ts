@@ -4,14 +4,13 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env
-    .VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: 'AIzaSyAlyf6RXq1xP_xXAS0MvvSZbBSffoUe8V8',
+  authDomain: 'telegram-crypto-game-proj.firebaseapp.com',
+  projectId: 'telegram-crypto-game-proj',
+  storageBucket: 'telegram-crypto-game-proj.appspot.com',
+  messagingSenderId: '325592472303',
+  appId: '1:325592472303:web:51dab111b5b5039b16591a',
+  measurementId: 'G-YJY67519JH',
 };
 
 const app = initializeApp(firebaseConfig);
