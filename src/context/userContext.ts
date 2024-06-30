@@ -6,7 +6,12 @@ export interface UserContextProps {
     user_id: string;
     score_points: number;
   } | null;
-  updateScore: (newScore: number) => void;
+  setUserData: React.Dispatch<
+    React.SetStateAction<{
+      user_id: string;
+      score_points: number;
+    } | null>
+  >;
   error: string | null;
 }
 

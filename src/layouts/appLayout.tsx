@@ -1,4 +1,4 @@
-import AppContent from '../components/content/content';
+import { Outlet } from 'react-router-dom';
 import NavBar from '../components/navigation/navBar';
 
 const AppLayout = () => {
@@ -11,7 +11,7 @@ const AppLayout = () => {
       }}
     >
       <main>
-        <AppContent />
+        <Outlet />
       </main>
       <footer>
         <NavBar />

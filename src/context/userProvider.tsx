@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
 import WebApp from '@twa-dev/sdk';
-import { firestore } from '../../firebaseConfig'; // Adjust the import path as necessary
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
+import { ReactNode, useState, useEffect } from 'react';
+import { firestore } from '../../firebaseConfig';
 import { UserContext } from './userContext';
 
-export const UserProvider: React.FC<{
-  children: React.ReactNode;
-}> = ({ children }) => {
+export const UserProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [userId, setUserId] = useState<number | null>(null);
   const [userData, setUserData] = useState<{
     user_id: string;
@@ -53,30 +53,9 @@ export const UserProvider: React.FC<{
     fetchUser();
   }, []);
 
-  const updateScore = async (newScore: number) => {
-    if (userId !== null) {
-      try {
-        const userDocRef = doc(
-          firestore,
-          'users_telegram',
-          userId.toString()
-        );
-        await updateDoc(userDocRef, {
-          score_points: newScore,
-        });
-        setUserData((prevData) =>
-          prevData ? { ...prevData, score_points: newScore } : null
-        );
-      } catch (err) {
-        setError('Error updating score');
-        console.error('Error updating score:', err);
-      }
-    }
-  };
-
   return (
     <UserContext.Provider
-      value={{ userId, userData, updateScore, error }}
+      value={{ userId, userData, setUserData, error }}
     >
       {children}
     </UserContext.Provider>

@@ -1,7 +1,7 @@
-import { useUser } from '../context/useUser';
+import useUserData from '../context/useAndUpdateUser';
 
 const HomePage = () => {
-  const { userId, userData, updateScore, error } = useUser();
+  const { userId, userData, updateScore, error } = useUserData();
 
   // Example function to handle some user action that updates the score
   const handleScoreUpdate = () => {
@@ -15,8 +15,10 @@ const HomePage = () => {
     <div
       style={{
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'red',
       }}
     >
       <h1>User Data {userId}</h1>
