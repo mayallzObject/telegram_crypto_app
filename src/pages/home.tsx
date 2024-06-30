@@ -4,7 +4,7 @@ import useUserData from '../context/useAndUpdateUser';
 
 const HomePage: React.FC = () => {
   const { userId, userData, updateScore, error } = useUserData();
-  const [points, setPoints] = useState(1000); // Start with 1000 points
+  const [points, setPoints] = useState(50); // Start with 1000 points
 
   useEffect(() => {
     if (userData) {
@@ -30,6 +30,7 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setPoints((prevPoints) => {
+        if (prevPoints === 0) return 0;
         const newPoints = prevPoints - 5;
         updateScore(newPoints);
         return newPoints < 0 ? 0 : newPoints;
