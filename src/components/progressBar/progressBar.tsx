@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProgressBar.css';
 
 interface ProgressBarProps {
@@ -20,7 +20,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, [isRed]);
+  }, [progress]);
 
   const handlePress = () => {
     onResetTimer();
@@ -28,16 +28,14 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   };
 
   return (
-    <div className="progress-container">
+    <div className="progress-container" onClick={handlePress}>
       <div
         className={`progress-bar ${isRed ? 'red' : ''}`}
         style={{ width: `${progress}%` }}
       >
         {progress}%
       </div>
-      <div className="points" onClick={handlePress}>
-        Points: {points}
-      </div>
+      <div className="points">Points: {points}</div>
     </div>
   );
 };
