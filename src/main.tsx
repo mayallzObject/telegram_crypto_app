@@ -8,8 +8,11 @@ import './index.css';
 WebApp.ready();
 WebApp.expand();
 
+const user = WebApp.initDataUnsafe.user;
+const userId = user ? user.id : null;
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <App userId={userId} />
   </React.StrictMode>
 );
