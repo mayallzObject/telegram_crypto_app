@@ -1,15 +1,12 @@
+import React, { useCallback } from 'react';
 import useUserData from '../context/useAndUpdateUser';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const { userId, userData, updateScore, error } = useUserData();
 
-  // Example function to handle some user action that updates the score
-  const handleScoreUpdate = () => {
-    if (userData) {
-      const newScore = userData.score_points + 10; // For example, increment score by 10
-      updateScore(newScore);
-    }
-  };
+  const handleScoreUpdate = useCallback(() => {
+    updateScore(10); // Increment score by 10
+  }, [updateScore]);
 
   return (
     <div
