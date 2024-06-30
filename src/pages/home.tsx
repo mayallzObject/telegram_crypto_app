@@ -16,6 +16,9 @@ const HomePage: React.FC = () => {
   const handleScoreUpdate = useCallback(async () => {
     if (userData) {
       const newScore = userData.score_points + 10;
+      console.log(
+        `Updating score from ${userData.score_points} to ${newScore}`
+      );
       await updateScore(newScore);
       setPoints(newScore);
       resetTimer();

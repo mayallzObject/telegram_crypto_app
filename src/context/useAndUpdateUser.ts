@@ -1,5 +1,5 @@
-import { useCallback } from 'react';
 import { doc, updateDoc } from 'firebase/firestore';
+import { useCallback } from 'react';
 import { firestore } from '../../firebaseConfig';
 
 import { useUser } from './useUser';
@@ -8,10 +8,9 @@ const useUserData = () => {
   const { userId, userData, setUserData, error } = useUser();
 
   const updateScore = useCallback(
-    async (increment: number) => {
+    async (newScore: number) => {
       if (userData && userId !== null) {
         try {
-          const newScore = userData.score_points + increment;
           const userDocRef = doc(
             firestore,
             'users_telegram',
