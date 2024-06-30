@@ -1,6 +1,6 @@
 // src/firestore.ts
 import { getDoc, doc } from 'firebase/firestore';
-import { db } from '../../firebase.config';
+import { db } from '../../firebaseConfig';
 
 export const fetchDocumentById = async (
   collectionName: string,
