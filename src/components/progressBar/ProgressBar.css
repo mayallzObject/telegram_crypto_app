@@ -12,15 +12,15 @@
 .progress-bar {
   height: 100%;
   background-color: green;
-  transition: width 0.5s, background-color 0.5s;
-  animation: pulsate 1s infinite;
+  /* transition: width 0.5s, background-color 0.5s;
+  animation: pulsate 1s infinite; */
 }
 
 .progress-bar.red {
   background-color: red;
 }
 
-@keyframes pulsate {
+/* @keyframes pulsate {
   0% {
     transform: scale(1);
   }
@@ -32,13 +32,13 @@
   100% {
     transform: scale(1);
   }
-}
+} */
 
 .points {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   font-weight: bold;
   color: white;
 }
