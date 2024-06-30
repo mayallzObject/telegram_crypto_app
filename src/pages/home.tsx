@@ -31,12 +31,13 @@ const HomePage: React.FC = () => {
     const interval = setInterval(() => {
       setPoints((prevPoints) => {
         const newPoints = prevPoints - 5;
+        updateScore(newPoints);
         return newPoints < 0 ? 0 : newPoints;
       });
     }, 1000); // Decrease points every second
 
     return () => clearInterval(interval);
-  }, []);
+  }, [updateScore]);
 
   return (
     <div>
