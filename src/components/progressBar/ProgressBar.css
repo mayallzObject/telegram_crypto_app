@@ -1,0 +1,44 @@
+.progress-container {
+  width: 100%;
+  position: relative;
+  height: 30px;
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: green;
+  transition: width 0.5s, background-color 0.5s;
+  animation: pulsate 1s infinite;
+}
+
+.progress-bar.red {
+  background-color: red;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.points {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  cursor: pointer;
+}

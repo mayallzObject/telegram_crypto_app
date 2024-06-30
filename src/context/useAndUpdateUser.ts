@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
-
 import { doc, updateDoc } from 'firebase/firestore';
-import { firestore } from '../../firebaseConfig'; // Adjust the import path as necessary
+import { firestore } from '../../firebaseConfig';
 
 import { useUser } from './useUser';
 
