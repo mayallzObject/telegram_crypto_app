@@ -1,7 +1,9 @@
 // src/App.tsx
-import React, { useEffect, useState } from 'react';
-import { fetchDocumentById } from './firestore/users.store';
-import { DocumentData } from 'firebase/firestore';
+// import React, { useEffect, useState } from 'react';
+// import { fetchDocumentById } from './firestore/users.store';
+// import { DocumentData } from 'firebase/firestore';
+
+import React from 'react';
 
 const App: React.FC<{ userId: number | null }> = ({ userId }) => {
   // const [user, setUser] = useState<DocumentData | null>(null);
