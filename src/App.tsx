@@ -15,7 +15,7 @@ const App: React.FC<{ userId: number | null }> = ({ userId }) => {
         try {
           const userDocRef = doc(
             firestore,
-            'users',
+            'users_telegram',
             userId.toString()
           );
           const userDoc = await getDoc(userDocRef);
