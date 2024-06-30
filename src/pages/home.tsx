@@ -4,8 +4,7 @@ import useUserData from '../context/useAndUpdateUser';
 
 const HomePage: React.FC = () => {
   const { userId, userData, updateScore, error } = useUserData();
-  const [progress, setProgress] = useState(50); // Example initial progress
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(1000); // Start with 1000 points
 
   useEffect(() => {
     if (userData) {
@@ -16,9 +15,6 @@ const HomePage: React.FC = () => {
   const handleScoreUpdate = useCallback(async () => {
     if (userData) {
       const newScore = userData.score_points + 10;
-      console.log(
-        `Updating score from ${userData.score_points} to ${newScore}`
-      );
       await updateScore(newScore);
       setPoints(newScore);
       resetTimer();
@@ -26,27 +22,25 @@ const HomePage: React.FC = () => {
   }, [userData, updateScore]);
 
   const resetTimer = () => {
-    setProgress(100);
+    setPoints((prevPoints) =>
+      prevPoints + 5 > 1000 ? 1000 : prevPoints + 5
+    ); // Add 5 points back, up to a max of 1000
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prev) => {
-        const newProgress = prev - 1;
-        return newProgress < 0 ? 0 : newProgress;
+      setPoints((prevPoints) => {
+        const newPoints = prevPoints - 5;
+        return newPoints < 0 ? 0 : newPoints;
       });
-    }, 100); // Update progress every 100ms
+    }, 1000); // Decrease points every second
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div>
-      <ProgressBar
-        progress={progress}
-        points={points}
-        onResetTimer={resetTimer}
-      />
+      <ProgressBar points={points} onResetTimer={resetTimer} />
       <h1>User Data {userId}</h1>
       {error && <p>{error}</p>}
       {userData ? (

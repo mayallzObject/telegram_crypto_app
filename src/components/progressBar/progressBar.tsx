@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './ProgressBar.css';
 
 interface ProgressBarProps {
-  progress: number;
   points: number;
   onResetTimer: () => void;
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
-  progress,
   points,
   onResetTimer,
 }) => {
@@ -20,20 +18,22 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, [progress]);
+  }, [points]);
 
   const handlePress = () => {
     onResetTimer();
     setIsRed(false);
   };
 
+  const progressPercentage = (points / 1000) * 100;
+
   return (
     <div className="progress-container" onClick={handlePress}>
       <div
         className={`progress-bar ${isRed ? 'red' : ''}`}
-        style={{ width: `${progress}%` }}
+        style={{ width: `${progressPercentage}%` }}
       >
-        {progress}%
+        {points} / 1000
       </div>
       <div className="points">Points: {points}</div>
     </div>
