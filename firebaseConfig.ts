@@ -4,13 +4,13 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAlyf6RXq1xP_xXAS0MvvSZbBSffoUe8V8',
+  apiKey: 'AIzaSyDa-kckOeEKNFoXiYMBcOQWZaaJ_nAzNA8',
   authDomain: 'telegram-crypto-game-proj.firebaseapp.com',
   projectId: 'telegram-crypto-game-proj',
   storageBucket: 'telegram-crypto-game-proj.appspot.com',
   messagingSenderId: '325592472303',
-  appId: '1:325592472303:web:51dab111b5b5039b16591a',
-  measurementId: 'G-YJY67519JH',
+  appId: '1:325592472303:web:1a3216974ef2226616591a',
+  measurementId: 'G-JVF8DG0YZ5',
 };
 
 const app = initializeApp(firebaseConfig);

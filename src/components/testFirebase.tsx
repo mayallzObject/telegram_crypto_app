@@ -7,7 +7,7 @@ const FirebaseConfigTest = () => {
     const fetchConfig = async () => {
       try {
         const response = await fetch(
-          'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig?key=AIzaSyAlyf6RXq1xP_xXAS0MvvSZbBSffoUe8V8'
+          'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig?key=AIzaSyDa-kckOeEKNFoXiYMBcOQWZaaJ_nAzNA8'
         );
 
         if (!response.ok) {
