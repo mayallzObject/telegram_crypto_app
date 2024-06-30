@@ -4,6 +4,7 @@ import App from './App.tsx';
 // import WebApp from '@twa-dev/sdk';
 
 import './index.css';
+import { UserProvider } from './context/userContextProvider.tsx';
 
 // WebApp.ready();
 // WebApp.expand();
@@ -14,6 +15,8 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     {/* <App userId={userId} /> */}
-    <App />
+    <UserProvider>
+      <App />
+    </UserProvider>
   </React.StrictMode>
 );
